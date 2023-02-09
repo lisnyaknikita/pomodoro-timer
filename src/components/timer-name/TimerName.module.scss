@@ -1,0 +1,14 @@
+.timerName{
+    border: none;
+    background-color: transparent;
+    font-size: 26px;
+    font-weight: bold;  
+    text-align: center;
+    color: #000;
+    margin-bottom: 10px;
+    outline: none;
+    &:focus{
+        margin-bottom: 9px;
+        border-bottom: 1px solid #0000003a;
+    }
+}
