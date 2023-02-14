@@ -2,15 +2,18 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface ITimerState {
   sessionMinutes: number;
-  breakDuration: number;
+  breakMinutes: number;
   numberOfSession: number;
+  completeCircles: string[];
 }
 
 const initialState: ITimerState = {
-  sessionMinutes: 1,
-  breakDuration: 17,
-  numberOfSession: 5,
+  sessionMinutes: Number(localStorage.getItem('sessionMinutes')),
+  breakMinutes: Number(localStorage.getItem('breakMinutes')),
+  numberOfSession: Number(localStorage.getItem('numberOfSession')),
+  completeCircles: [],
 };
+
 
 const TimerSlice = createSlice({
   name: 'timer',
@@ -18,15 +21,21 @@ const TimerSlice = createSlice({
   reducers: {
     changeSessionMinutes: (state, action: PayloadAction<number>) => {
       state.sessionMinutes = action.payload;
+      localStorage.setItem('sessionMinutes', state.sessionMinutes.toString())
     },
     minusSessionMinutes: (state) => {
       state.sessionMinutes--;
     },
-    changebreakDuration: (state, action: PayloadAction<number>) => {
-      state.breakDuration = action.payload;
+    changebreakMinutes: (state, action: PayloadAction<number>) => {
+      state.breakMinutes = action.payload;
+      localStorage.setItem('breakMinutes', state.breakMinutes.toString())
     },
     changenumberOfSession: (state, action: PayloadAction<number>) => {
       state.numberOfSession = action.payload;
+      localStorage.setItem('numberOfSession', state.numberOfSession.toString())
+    },
+    updateCompleteCircles: (state) => {
+      state.completeCircles.push('complete');
     },
   },
 });
@@ -34,8 +43,9 @@ const TimerSlice = createSlice({
 export const {
   changeSessionMinutes,
   minusSessionMinutes,
-  changebreakDuration,
+  changebreakMinutes,
   changenumberOfSession,
+  updateCompleteCircles,
 } = TimerSlice.actions;
 
 export default TimerSlice.reducer;

@@ -1,10 +1,9 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #0f172a;
   /* background-color: #1b1717; */
 }
 
@@ -15,9 +14,9 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #f0eeee;
-  /* background-color: #949494; */
-  border-radius: 10px;
+  background-color: #060709;
+  color: #cdc7c7;
+  border-radius: 20px;
 }
 .timer__settings {
   width: 800px;
@@ -26,8 +25,8 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #f0eeee;
-  border-radius: 10px;
+  background-color: #060709;
+  border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,6 +38,7 @@ body {
   align-items: center;
   margin-top: 70px;
 }
+
 button {
   margin: 0;
   padding: 0;
@@ -47,7 +47,7 @@ button {
   
 }
 .timer__settings-inner {
-  background-color: #dad9d9;
+  background-color: rgb(41, 40, 40);
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -58,27 +58,38 @@ button {
   margin: 0 auto;
   border-radius: 10px;
 }
+.timer__row{
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.timer__row label {
+  color: #cdc7c7;
+  font-size: 18px;
+}
 .input {
   border: none;
-  border-bottom: 1px solid #00000026;
+  border-bottom: 1px solid transparent;
   background-color: transparent;
   font-size: 18px;
   font-weight: bold;
   text-align: left;
-  color: #000;
-  margin-bottom: 10px;
+  color: #cdc7c7;
+  /* margin-bottom: 10px; */
   max-width: 350px;
-  width: 100%;
-  margin: 0 auto;
+  width: 50px;
+  /* margin: 0 auto; */
+  margin-left: auto;
   outline: none;
+  
 }
 .input:focus{
-  border-bottom: 1px solid #0000009d;
+  border-bottom: 1px solid #cdc7c7;
 }
 .timer__settings-btn{
   cursor: pointer;  
   padding: 10px;
-  background-color: #fff;
+  background-color: #cdc7c7;
   display: inline-block;
   width: 120px;
   margin: 10px auto 0;
@@ -87,5 +98,40 @@ button {
   transition: all .3s;
 }
 .timer__settings-btn:hover{
-  background-color: #ebebeb;
+  background-color: #e7e7e7;
+}
+
+@media (max-width: 900px) {
+  .timer{
+    width: 600px;
+    height: 400px;
+  }
+  .timer__settings{
+    width: 600px;
+    height: 400px;
+  }
+  .timer__content{
+    margin-top: 0px;
+  
+  }
+}
+@media (max-width: 700px) {
+  .timer{
+    width: 550px;
+    height: 370px;
+  }
+  .timer__settings{
+    width: 550px;
+    height: 370px;
+  }
+}
+@media (max-height: 400px) {
+  .timer{
+    width: 550px;
+    height: 370px;
+  }
+  .timer__settings{
+    width: 550px;
+    height: 370px;
+  }
 }

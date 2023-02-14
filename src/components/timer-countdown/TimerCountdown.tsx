@@ -28,14 +28,14 @@ const TimerCountdown: React.FC<any> = ({ isPaused , setIsPaused}) => {
   const sessionMinutes = useSelector(
     (state: RootState) => state.timer.sessionMinutes
   );
-  const breakDuration = useSelector(
-    (state: RootState) => state.timer.breakDuration
+  const breakMinutes = useSelector(
+    (state: RootState) => state.timer.breakMinutes
   );
 
   const switchMode = () => {
     const nextMode = modeRef.current === 'work' ? 'break' : 'work';
     const nextSeconds =
-      (nextMode === 'work' ? sessionMinutes : breakDuration) * 60;
+      (nextMode === 'work' ? sessionMinutes : breakMinutes) * 60;
     setMode(nextMode);
     modeRef.current = nextMode;
     setSecondsLeft(nextSeconds);
@@ -66,7 +66,7 @@ const TimerCountdown: React.FC<any> = ({ isPaused , setIsPaused}) => {
     }, 1000);
 
     return ()=> clearInterval(interval);
-  }, [sessionMinutes, breakDuration]);
+  }, [sessionMinutes, breakMinutes]);
 
   let minutes:any = Math.floor(secondsLeft / 60);
   if (minutes < 10) minutes = '0' + minutes

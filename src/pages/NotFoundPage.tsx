@@ -2,8 +2,8 @@
 
 const NotFoundPage: React.FC = () => {
   return (
-    <div>NotFoundPage</div>
+    <div style={{color: '#fff', textAlign: 'center', marginTop: 100}}>NotFoundPage</div>
   )
 }
 
-export default NotFoundPage
+export default NotFoundPage 

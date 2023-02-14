@@ -2,11 +2,16 @@ import React from 'react'
 
 import classes from './TimerName.module.scss'
 
-const TimerName: React.FC = () => {
+interface ITimerName {
+  nextModeName: React.MutableRefObject<string>
+}
+
+const TimerName: React.FC<ITimerName> = ({nextModeName}) => {
   
 
   return (
-    <input className={classes.timerName} type="text" placeholder="Hard work" />
+    // <input className={classes.timerName} type="text" defaultValue={nextModeName.current === 'break' ? 'Work session' : 'Break'} />
+    <p className={classes.timerName}>{nextModeName.current === 'work' ? 'Work session' : 'Break'}</p>
   )
 }
 

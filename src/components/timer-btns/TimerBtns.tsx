@@ -9,18 +9,26 @@ interface ITimerBtns {
   isPausedRef: React.MutableRefObject<boolean>;
   isPaused: boolean;
   setIsPaused: (isPaused: boolean) => void;
+  completeRef: React.MutableRefObject<boolean>;
+
 }
 
-const TimerBtns: React.FC<ITimerBtns> = ({ isPausedRef, isPaused, setIsPaused }) => {
+const TimerBtns: React.FC<ITimerBtns> = ({
+  isPausedRef,
+  isPaused,
+  setIsPaused,
+  completeRef,
+
+}) => {
+  const onPlayClick = () => {
+    setIsPaused(false);
+    isPausedRef.current = false;
+  };
+
   return (
     <button className={classes.timerPlay}>
-      {isPaused ? (
-        <BsPlay
-          onClick={() => {
-            setIsPaused(false);
-            isPausedRef.current = false;
-          }}
-        />
+      {isPaused || completeRef.current === true ? (
+        <BsPlay onClick={() => onPlayClick()} />
       ) : (
         <BsPause
           onClick={() => {
